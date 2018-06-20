@@ -4,7 +4,8 @@
   "description": "frontend",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
