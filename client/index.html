@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <script src="node_modules\angular\angular.js"></script>
+    <script src="dist\main.bundle.js"></script>
+</head>
+
+<body>
+    <div ng-app="demoApp">
+        <div ng-controller="myController">
+            <header>
+                {{greetings}}
+            </header>
+            <button ng-click="query()">query</button>
+        </div>
+    </div>
+</body>
+
+</html>
