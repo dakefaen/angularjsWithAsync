@@ -7,11 +7,18 @@
 
 <body>
     <div ng-app="demoApp">
-        <div ng-controller="myController">
-            <header>
-                {{greetings}}
-            </header>
-            <button ng-click="query()">query</button>
+        <div ng-controller="myController as ctrl">
+            <div>
+                <header>
+                    {{greetings}}
+                </header>
+                <button ng-click="query()">query</button>
+            </div>
+            <div>
+                <input ng-model="ctrl.hello">
+                <button ng-click="query2()">query2</button>
+                <button ng-click="query3()">query3</button>
+            </div>
         </div>
     </div>
 </body>
