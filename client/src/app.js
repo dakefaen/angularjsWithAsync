@@ -1,5 +1,3 @@
-require('babel-polyfill');
-
 (function (angular) {
     angular.module("demoApp", [])
         .controller("myController", myControllerConstrut);
@@ -18,6 +16,7 @@ require('babel-polyfill');
             $scope.$apply();
         };
 
+        ctrl.queryAlot = queryAlot;
         async function queryAlot() {
             let response = await $http.get('/api');
             let response2 = await $http.get('/api2');
@@ -27,7 +26,7 @@ require('babel-polyfill');
 
         $scope.query2 = () => {
             ctrl.hello = 'query2...';
-            queryAlot().finally(() => {
+            return queryAlot().finally(() => {
                 $scope.$digest();
                 // $scope.$apply();
             });
@@ -35,7 +34,7 @@ require('babel-polyfill');
 
         $scope.query3 = () => {
             ctrl.hello = 'query3...';
-            $q.when(0).then(queryAlot).finally(() => {
+            return $q.when(0).then(queryAlot).finally(() => {
                 $scope.greetings = "3 done";
             });
         }
