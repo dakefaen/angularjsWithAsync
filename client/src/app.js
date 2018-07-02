@@ -11,6 +11,7 @@
         $scope.query = async () => {
             $scope.greetings = 'query...';
             let response = await $http.get('/api');
+            // console.log(response.data);
             $scope.greetings = response.data;
             // $scope.$digest();
             $scope.$apply();

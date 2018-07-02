@@ -29,9 +29,10 @@ describe('app.spec.js', () => {
 
     describe("async query tests", () => {
         beforeEach(() => {
-            controller.queryAlot = () => {
+            controller.queryAlot = async () => {
                 controller.hello = mockData.data;
-                return Promise.resolve(1);
+                return await 1;
+                // return Promise.resolve(1);
                 // return q.when(1);
             };
         });
@@ -70,5 +71,12 @@ describe('app.spec.js', () => {
     it('tests that async / await works', async () => {
         var v = await add1(10);
         expect(v).toBe(60);
+    });
+
+    it('tests that done works', (done) => {
+        add1(10).then(v => {
+            expect(v).toBe(60);
+            done();
+        })
     });
 });

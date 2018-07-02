@@ -2,7 +2,7 @@
     var request = require('request-promise');
 
     function httpGet(url) {
-        return request.get(url).then(html => html.slice(0, 200));
+        return request.get(url).then(html => html.slice(0, 30));
     }
 
     async function logContent1(urls) {
@@ -35,7 +35,7 @@
         console.log("end of logContent3");
     }
 
-    let urls = ["http://www.baidu.com", "http://www.163.com"];
+    let urls = ["http://www.baidu.com", "http://www.sohu.com"];
 
     await logContent1(urls);
 
